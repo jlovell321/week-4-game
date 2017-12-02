@@ -64,7 +64,7 @@ $(document).on('click', ".crystal", function () {
 			resetAndStart();
 		}
 
-		else if (previous === result) {
+		else if (previous === random_number) {
 
 			win++;
 
