@@ -36,7 +36,7 @@ var resetAndStart = function() {
 
 		$(".crystals").append(crystal);
 	}
-
+	// adds the crystals
 	$("#previous").html("Total Score: " + previous);
 }
 
