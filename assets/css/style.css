@@ -1,12 +1,86 @@
 
+body {
+	background-image: url("marble.jpg");
+}
+
+
 .crystal{
+	clear: both;
 	border: 1px solid black;
 	height:200px;
 	width: 200px;
+	
 }
 
 .crystals {
+	clear: both;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	background-color: pink;
+	border: 1px solid black;
+	
+}
+
+header {
+	border: 1px solid black;
+	height:100px;
+	width: 100%;
+	align-content: center;
+	font-size: 64px;
+	background: black;
+	color: pink;
+	text-align: center;
+}
+
+
+#instructions {
+	border: 5px dotted black;
+	text-align: center;
+	color: pink;
+	background: white;
+	opacity: 60%;
+}
+
+#result {
+	border: 1px solid black;
+	background: #D3D3D3;
+	height: 100px;
+	width: 300px;
+	font-size: 50px;
+	text-align: left;
+}
+
+#win {
+	border: 1px solid black;
+	background: pink;
+	height: 100px;
+	width: 300px;
+	font-size: 50px;
+	text-align: left;
+
+
+}
+
+#lost {
+	border: 1px solid black;
+	background: pink;
+	height: 100px;
+	width: 300px;
+	font-size: 50px;
+	text-align: left;
+	float:left;
+
+}
+
+#previous { 
+	border: 1px solid black;
+	height:100px;
+	width: 100%;
+	align-content: center;
+	font-size: 64px;
+	background: black;
+	color: pink;
+	text-align: center;
+
 }

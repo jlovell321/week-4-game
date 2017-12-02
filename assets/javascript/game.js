@@ -1,39 +1,82 @@
 
-var result;
-var lost;
-var add;
+var random_number;
+var lost = 0;
+var win = 0;
+var previous =0;
+// getting the crystals
 
+var resetAndStart = function() {
+	//resets the crystals to empty
+	$(".crystals").empty();
 
-result = Math.floor(Math.random() * 20) + 101;
+	var images = [
+				'assets/images/jewel4.jpg',
+				'assets/images/jewel3.jpg',
+				'assets/images/jewel2.jpg',
+				'assets/images/jewel1.jpg'];
+	// The total number needs to randomly generate a number between 19-120.
+	random_number = Math.floor(Math.random() * 20) + 101;
+// A new number regenerates every single time for each crystal whe the game restarts
+	$("#result").html('Result: ' + random_number);
 
- //console.log(result);
+	for(var i = 0; i < 4; i++) {
 
-$("#result").html('Result: ' + result);
-//4 crystals
-for(var i = 0; i <4; i++) {
-	// Each crystal needs to have a random number between 1 - 12
-	var randomNumber = Math.floor(Math.random() * 12);
-	//console.log(randomNumber);
+			var random = Math.floor(Math.random() * 11) + 1;
 
-	var crystal = $("<div>");
-		crystal.attr({
-			"class": 'crystal',
-			"data-random": randomNumber
-		});
+			var crystal = $("<div>");
+			crystal.attr({
+				"class": 'crystal',
+				"data-random": random
+			});
+			crystal.css({
+				"background-image":"url('" + (images[i]) + "')",
+				"background-size":"cover"
+			});
+			//crystal.html(random);
 
-	$(".crystals").append(crystal);
+		$(".crystals").append(crystal);
+	}
+
+	$("#previous").html("Total Score: " + previous);
 }
 
+resetAndStart();
 
-$(".crystal").on('click', function (){
+// Clicking on singular crystal adds to your points.
+$(document).on('click', ".crystal", function () {
 
-	console.log($(this));
+		var num = parseInt($(this).attr('data-random'));
+
+		previous += num;
+
+		$("#previous").html("Total Score: " + previous);
+
+		console.log(previous);
+// If the numbers add up to the total score then the player wins if not they lose.
+		if(previous > random_number) {
+
+			lost--;
+
+			$("#lost").html("Losses: " + lost);
+
+			previous = 0;
+
+			resetAndStart();
+		}
+
+		else if (previous === result) {
+
+			win++;
+
+			$("#win").html("Wins: " + win);
+
+			previous = 0;
+
+			resetAndStart();
+		}
 });
-// The total number needs to randomly generate a number between 19-120. 
-// A new number regenerates every single time for each crystal whe the game restarts
-// Clicking on singular crystal adds to your points. 
-// If the numbers add up to the total score then the player wins.
-// If they go over the total score the player loses.
-// Score tracker. 
+
+
+
 
 
